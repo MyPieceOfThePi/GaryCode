@@ -35,8 +35,11 @@
 #define PROS_USE_LITERALS
 
 #include "api.h"
-#include "drive.h"
-
+#include "Feedback/PID.hpp"
+#include "Feedback/Filter.hpp"
+#include "Feedback/velocityControl.hpp"
+#include "drive.hpp"
+#include "automous.hpp"
 /**
  * You should add more #includes here
  */
