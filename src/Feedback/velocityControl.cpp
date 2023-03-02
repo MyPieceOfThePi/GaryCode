@@ -24,6 +24,8 @@ VelocityController::VelocityController(PID pid_, double velocityLookup_[], doubl
 
 //Deconstructor
 VelocityController::~VelocityController(){}
+
+//Seets the PID of the velocity controllerr
 void VelocityController::setPID(double kp_, double ki_,double kd_){
     pid.setConstants(kp_,ki_,kd_);
 }
@@ -44,8 +46,6 @@ double VelocityController::compute(double sensorVal){
     }
     return 0;
 }
-
-//Sets the filter for the velocity controller
 
 //Sets the gains for the velocity controller
 void VelocityController::setConstants(PID pid_, double velocityLookup_[12], double kA_){

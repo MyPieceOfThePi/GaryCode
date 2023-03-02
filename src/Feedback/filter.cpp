@@ -14,6 +14,9 @@ double EMA::compute(double sensorVal){
     oldValue=(weight*sensor)+((1-weight)*oldValue);
     return oldValue;
 }
+
+//Definition of the virtual member compute in the derived class EMA, which filters the input value
+//as defined by the SMA algoritm
 double SMA::compute(double sensorVal){
     int length = sizeof(values) / sizeof(double);
     double sum = 0;

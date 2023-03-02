@@ -22,52 +22,15 @@ void offRoller(){
     driveTask.resume();
 }
 
-//This is the function to edit
-//Drive is in the form, p (position), v (velocity), a (accelration), j (jerk)
-//After every drive you need a turnWait(), and after every Drive you need driveWait()
-//Remember semicolons
-//Call onRoller(200) to roll roller, this function is in this file if you need to change it
-//pros::delay(milliseconds) delays for x milliseconds
-//Call shoot to shoot, or copy and paste the shoot function if you need to edit it
-void sixWinpoint(){
-	flywheelControllerA.setTarget(448);
-	//shootT=true;
-	//shootingTask.resume();
-	driveTask.suspend();
-	onRoller(200);
-	driveTask.resume();
-	intake=-127;
-	Turn(135+90-360+10);
-	turnWait();
-	Drive(28,36,42,170);
-	driveWait();
-	intake=127;
-	Drive(23,18,25,140);
-	driveWait();
-	Turn(135+90+90-360+12);
-	turnWait();
-	shoot(500);
-}
-void sixDisk(){
+void fiveDiskRight(){
 	flywheelController.setTarget(415);
 	intake=127;
 	Drive(43,49,113,420);
 	driveWait();
 	Turn(-135);
 	turnWait(); 
-	// Drive(-7,8,12,120);
-	// driveWait();
 	intake=0;
-	indexer.set_value(true);
-	pros::delay(200);
-	indexer.set_value(false);
-	pros::delay(400);
-	indexer.set_value(true);
-	pros::delay(200);
-	indexer.set_value(false);
-	pros::delay(400);
-	indexer.set_value(true);
-	pros::delay(200);
+	shoot(400,3,200);
 	indexer.set_value(false);
 	flywheelController.setTarget(462);
 	intake=127;
@@ -79,13 +42,7 @@ void sixDisk(){
 	driveWait();
 	Turn(-157);
 	turnWait();
-	indexer.set_value(true);
-	pros::delay(200);
-	indexer.set_value(false);
-	pros::delay(300);
-	indexer.set_value(true);
-	pros::delay(200);
-	indexer.set_value(false);
+	shoot(300,2,200);
 	Turn(-215);
 	turnWait();
 	Drive(33,37,96,420);
@@ -96,17 +53,15 @@ void sixDisk(){
 	onRoller(200);
 	driveTask.resume();
 }
-void shoot(int d){
+void shoot(double d,int n, double s){
+	for(int i = 0; i<n-1; i++){
+		indexer.set_value(true);
+		pros::delay(s);
+		indexer.set_value(false);
+		pros::delay(d);
+	}
 	indexer.set_value(true);
-	pros::delay(200);
-	indexer.set_value(false);
-	pros::delay(d);
-	indexer.set_value(true);
-	pros::delay(200);
-	indexer.set_value(false);
-	pros::delay(d);
-	indexer.set_value(true);
-	pros::delay(200);
+	pros::delay(s);
 	indexer.set_value(false);
 }
 void leftHalfWinpoint(){
@@ -123,45 +78,11 @@ void leftHalfWinpoint(){
 	Turn(135+90+90-360+12);
 	turnWait();
 	pros::delay(1000);
-	shoot(500);
+	shoot(500,3,200);
 }
-void rightHalfWinpoint(){
-    flywheelController.setTarget(418);
-	intake=127;
-	Drive(40,35,35,150);
-	driveWait();
-	Turn(-135);
-	turnWait(); 
-	// Drive(-7,8,12,120);
-	// driveWait();
-	intake=0;
-	pros::delay(700);
-	indexer.set_value(true);
-	pros::delay(200);
-	indexer.set_value(false);
-	pros::delay(700);
-	indexer.set_value(true);
-	pros::delay(200);
-	indexer.set_value(false);
-	pros::delay(700);
-	indexer.set_value(true);
-	pros::delay(200);
-	indexer.set_value(false);
-	pros::delay(200);
-	intake=127;
-	Drive(4,8,12,120);
-	driveWait();
-	Turn(-225);
-	turnWait();
-	Drive(73,50,48,120);
-	driveWait();
-	Turn(-180);
-	turnWait();
-	driveTask.suspend();
-	onRoller(200);
-	driveTask.resume();
-}
+
 void skills(){
+	//Roller and first intaking first disk
 	flywheelController.setTarget(350);
     onRoller(100);
 	intake=127;
@@ -174,13 +95,17 @@ void skills(){
 	onRoller(100);
 	Turn(0);
 	turnWait();
+
+	//First Volley
 	Drive(-38,53,126,584);
 	driveWait();
 	Turn(7);
 	turnWait();
-	shoot(300);
+	shoot(300,3,200);
 	Turn(0);
 	turnWait();
+
+	//Second cycle
 	Drive(-13.5,28,110,818);
 	driveWait();
 	Turn(-90);
@@ -190,7 +115,9 @@ void skills(){
 	driveWait();
 	Turn(-30);
 	turnWait();
-	shoot(300);
+	shoot(300,3,200);
+
+	//Third Cycle
 	flywheelController.setTarget(380);
 	Turn(-90);
 	turnWait();
@@ -202,7 +129,9 @@ void skills(){
 	driveWait();
 	Turn(-20);
 	turnWait();
-	shoot(300);
+	shoot(300,3,200);
+
+	//Fourth Cycle
 	Turn(0);
 	turnWait();
 	Drive(37,20,100,520);
@@ -214,7 +143,9 @@ void skills(){
 	driveWait();
 	Turn(-10);
 	turnWait();
-	shoot(300);
+
+	//Fifth Cycle
+	shoot(300,3,200);
 	Turn(-90);
 	turnWait();
 	Drive(30,20,100,520);
@@ -225,12 +156,16 @@ void skills(){
 	Drive(-18,28,110,818);
 	driveWait();
 	Turn(170);
-	shoot(300);
+	shoot(300,3,200);
+
+	//Sixth cycle
 	Turn(225);
 	turnWait();
 	Drive(33,53,134,390);
 	driveWait();
 	Turn(-20);
 	turnWait();
-	shoot(300);
+	shoot(300,3,200);
+
+	//Seventh cycle
 }
