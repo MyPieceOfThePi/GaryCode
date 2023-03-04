@@ -24,14 +24,15 @@ void offRoller(){
 }
 
 void fiveDiskRight(){
-	flywheelController.setTarget(415);
+	flywheelController.setTarget(450);
 	intake=127;
-	Drive(43,49,113,420);
+	Drive(34,49,113,420);
 	driveWait();
 	Turn(-135);
-	turnWait(); 
+	turnWait();
 	intake=0;
-	shoot(400,3,200);
+	pros::delay(1750);
+	shoot(550,3,200);
 	indexer.set_value(false);
 	flywheelController.setTarget(462);
 	intake=127;
