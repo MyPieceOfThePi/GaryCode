@@ -43,7 +43,7 @@ void subsystemControl(){
     if(longRange){  
         flywheelController.setTarget((360)+shotsFired*flybool);
     }else{
-        flywheelController.setTarget((339+shotsFired)*flybool);
+        flywheelController.setTarget((370+shotsFired)*flybool);
     }
     intake=intake_*shift*127;
     if(newFlywheel&&shiftB||longRange&&newFlywheel){

@@ -6,6 +6,6 @@ void skills();
 void shoot(double t,int n, double s);
 void rightHalfWinpoint();
 void leftHalfWinpoint();
-void sixWinpoint();
+void fiveDiskRight();
 
 void sixDisk();

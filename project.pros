@@ -309,8 +309,9 @@
       }
     },
     "upload_options": {
-      "icon": "planet",
-      "slot": 1
+      "icon": "power",
+      "slot": 1,
+      "description": "Autonmous "
     }
   }
 }

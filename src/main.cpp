@@ -21,7 +21,7 @@ void competition_initialize() {}
 void autonomous() {
 	driveTask.resume();
 	flyTask.resume();
-	sixDisk();
+	fiveDiskRight();
 } 
 void opcontrol() {
 	driveTask.suspend();
