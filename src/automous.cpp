@@ -1,5 +1,8 @@
 #include "main.h"
-//hi
+
+
+
+//D
 bool shootT = false;
 void onRoller(int b){
 	driveTask.suspend();
@@ -84,7 +87,8 @@ void leftHalfWinpoint(){
 
 void skills(){
 	//Roller and first intaking first disk
-	flywheelController.setTarget(370);
+	flywheelController.setTarget(370
+	);
     onRoller(0);
 	intake=127;
 	Turn(135);
@@ -93,56 +97,63 @@ void skills(){
 	driveWait();
 	Turn(90);  
 	turnWait();
-	onRoller(100);
+	onRoller(140);
+	intake=127;
 	Turn(0);
 	turnWait();
 
 	//First Volley
-	Drive(-40,53,126,584);
+	Drive(-35,53,126,584);
 	driveWait();
-	Turn(8);
+	Turn(9);
 	turnWait();
 	shoot(450,3,200);
-	Drive(-12,24,49,800);
-	driveWait();
+	flywheelController.setTarget(374);
 	Turn(0);
 	turnWait();
+	Drive(-17.5,24,49,800);
+	driveWait();
 
 	//Second cycle
 	Turn(-90);
 	turnWait();
 	intake=127;
-	Drive(34,20,28,97);
+	Drive(14,10,49,1500);
 	driveWait();
-	Turn(-30);
+	Drive(8,10,49,1500);
+	driveWait();
+	Drive(15,10,49,1500);
+	driveWait();
+	Turn(-27);
 	turnWait();
-	shoot(300,3,200);
+	shoot(500,3,200);
 
 	//Third Cycle
-	flywheelController.setTarget(380);
-	Turn(-90);
+	flywheelController.setTarget(414);
+	Turn(-83);
 	turnWait();
-	Drive(18,28,110,818);
+	Drive(20,28,110,818);
 	driveWait();
 	Turn(45);
 	turnWait();
-	Drive(38,53,134,390);
+	Drive(35,27,134,390);
 	driveWait();
-	Turn(-20);
+	Turn(-18);
 	turnWait();
-	shoot(300,3,200);
+	shoot(600,3,200);
 
 	//Fourth Cycle
+	flywheelController.setTarget(420);
 	Turn(0);
 	turnWait();
-	Drive(37,20,100,520);
+	Drive(37,20,100,840);
 	intake=-127;
-	pros::delay(1000);
+	pros::delay(1750);
 	intake=127;
 	driveWait();
-	Drive(-12,28,110,818);
+	Drive(-16,28,110,818);
 	driveWait();
-	Turn(-10);
+	Turn(-14);
 	turnWait();
 
 	//Fifth Cycle
@@ -156,7 +167,7 @@ void skills(){
 	driveWait();
 	Drive(-18,28,110,818);
 	driveWait();
-	Turn(170);
+	Turn(173);
 	shoot(300,3,200);
 
 	//Sixth cycle

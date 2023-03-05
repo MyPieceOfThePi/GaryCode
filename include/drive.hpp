@@ -32,12 +32,12 @@ inline EMA flywheelEMA(0.2);
 inline EMA driveEMA(0.01);
 
 //Controllers
-inline PID flywheelPID(0.0015,0,0);
+inline PID flywheelPID(0.0025,0,0);
 inline PID flywheelPIDA(0.0025,0,0);
 inline PID driveVelocityPID(0.0001,0,0);
-inline double flywheelLookup[12]={0.211,0.211,0.211,0.211,0.211,0.23,0.23,0.22,0.2289,0.23,0.197,0.211};
+inline double flywheelLookup[12]={0.211,0.211,0.211,0.211,0.211,0.23,0.23,0.23,0.2289,0.23,0.197,0.211};
 inline double driveLookup[12]={0.211,0.211,0.211,0.211,0.211,0.211,0.211,0.211,0.211,0.211,0.211,0.211};
-inline VelocityController flywheelController(flywheelPID,flywheelLookup,0,&flywheelEMA,1,20);
+inline VelocityController flywheelController(flywheelPID,flywheelLookup,0,&flywheelEMA,1,15);
 inline VelocityController flywheelControllerA(flywheelPIDA,flywheelLookup,0,&flywheelEMA,1,17);
 inline VelocityController driveVelocityController(driveVelocityPID,driveLookup,0,&driveEMA,11.14,100);
 inline LinearMotionProfile driveProfile(24.0,35.0,100.0,320,driveVelocityController);
