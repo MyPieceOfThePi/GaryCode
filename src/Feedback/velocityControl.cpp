@@ -36,11 +36,14 @@ double VelocityController::compute(double sensorVal){
     if(setpoint!=0){
         //Checks if velocity is in a certain range and chooses between bang-bang, feedforward, PID
         if(setpoint-filteredVal>bangBang){
+            pros::screen::print(TEXT_LARGE,5,"1");
             return 127;
         }else if(filteredVal-setpoint>1000){
+            pros::screen::print(TEXT_LARGE,5,"3");
             return setpoint*velocityLookup[int(round((setpoint*PIDconst)/50))-1]*PIDconst;
         }else{
             outputA+=pid.compute(filteredVal);
+            pros::screen::print(TEXT_LARGE,5,"2");
             return setpoint*velocityLookup[int(round((setpoint*PIDconst)/50))-1]*PIDconst+outputA;
         }
     }

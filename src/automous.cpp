@@ -24,30 +24,29 @@ void offRoller(){
 }
 
 void fiveDiskRight(){
-	flywheelController.setTarget(450);
+	flywheelControllerA.setTarget(445);
 	intake=127;
-	Drive(34,49,113,420);
+	Drive(41,49,113,420);
 	driveWait();
+	Drive(-5,15.6,90,1500);
+	driveWait();
+	intake=50;
 	Turn(-135);
 	turnWait();
-	intake=0;
-	pros::delay(1750);
-	shoot(550,3,200);
-	indexer.set_value(false);
-	flywheelController.setTarget(462);
-	intake=127;
-	Drive(4,8,12,120);
+	shoot(500,3,200);
+	Drive(-5,12,49,800);
 	driveWait();
+	intake=100;
 	Turn(-225);
 	turnWait();
-	Drive(40,49,117,613);
+	Drive(40,40,117,613);
 	driveWait();
-	Turn(-157);
+	Turn(-160);
 	turnWait();
-	shoot(300,2,200);
-	Turn(-215);
+	shoot(520,2,200);
+	Turn(-225);
 	turnWait();
-	Drive(33,37,96,420);
+	Drive(25,37,96,420);
 	driveWait();
 	Turn(-180);
 	turnWait();
@@ -85,8 +84,8 @@ void leftHalfWinpoint(){
 
 void skills(){
 	//Roller and first intaking first disk
-	flywheelController.setTarget(350);
-    onRoller(100);
+	flywheelController.setTarget(370);
+    onRoller(0);
 	intake=127;
 	Turn(135);
 	turnWait();
@@ -99,17 +98,17 @@ void skills(){
 	turnWait();
 
 	//First Volley
-	Drive(-38,53,126,584);
+	Drive(-40,53,126,584);
 	driveWait();
-	Turn(7);
+	Turn(8);
 	turnWait();
-	shoot(300,3,200);
+	shoot(450,3,200);
+	Drive(-12,24,49,800);
+	driveWait();
 	Turn(0);
 	turnWait();
 
 	//Second cycle
-	Drive(-13.5,28,110,818);
-	driveWait();
 	Turn(-90);
 	turnWait();
 	intake=127;
@@ -138,7 +137,7 @@ void skills(){
 	turnWait();
 	Drive(37,20,100,520);
 	intake=-127;
-	pros::delay(500);
+	pros::delay(1000);
 	intake=127;
 	driveWait();
 	Drive(-12,28,110,818);

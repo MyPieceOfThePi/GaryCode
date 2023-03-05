@@ -21,7 +21,8 @@ void competition_initialize() {}
 void autonomous() {
 	driveTask.resume();
 	flyTask.resume();
-	fiveDiskRight();
+	skills();
+	//flywheelControllerA.setTarget(450);
 } 
 void opcontrol() {
 	driveTask.suspend();
